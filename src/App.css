@@ -1,0 +1,13 @@
+.selector {
+  width: 200px;
+  height: 200px;
+  border: 0.5px solid #000;
+  position: relative;
+  padding: 2rem;
+  /* margin: 1rem; */
+}
+.paging {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
