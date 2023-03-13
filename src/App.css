@@ -2,10 +2,36 @@
   border: 0.5px solid #000;
   position: relative;
   padding: 2rem;
-  margin: 1rem;
+  margin: auto;
+  width: 500px;
+}
+button {
+  height: 40px;
+  width: 100px;
+  font-size: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
+  margin: 5px;
 }
 .paging {
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
+}
+.button-container {
+  position: relative;
+  padding-top: 40px;
+}
+.advance-btn {
+  position: absolute;
+  right: -1rem;
+  bottom: -1rem;
+}
+.back-btn {
+  position: absolute;
+  left: -1rem;
+  bottom: -1rem;
+}
+
+button:hover {
+  cursor: pointer;
 }

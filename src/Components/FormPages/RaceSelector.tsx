@@ -28,10 +28,10 @@ const RaceSelector = ({
   });
 
   return (
-    <>
+    <div className="race-selector">
       <h1>{title}</h1>
-      {faction && renderedFaction}
-    </>
+      <div>{faction && renderedFaction}</div>
+    </div>
   );
 };
 export default RaceSelector;

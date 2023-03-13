@@ -44,14 +44,14 @@ function App() {
           {indexPage + 1}/{pages.length}
         </div>
         {page}
-        <div className="button_container">
+        <div className="button-container">
           {indexPage !== 0 && (
-            <button type="button" onClick={previousPage}>
+            <button type="button" onClick={previousPage} className="back-btn">
               Back
             </button>
           )}
           {indexPage + 1 < pages.length && (
-            <button type="button" onClick={nextPage}>
+            <button type="button" onClick={nextPage} className="advance-btn">
               Next
             </button>
           )}
