@@ -1,43 +1,29 @@
 import { useState } from "react";
-import AddressForm from "./AddressForm";
 import "./App.css";
-import CharacterForm from "./CharacterForm";
-import InfoForm from "./InfoForm";
+import CharacterName from "./Components/FormPages/CharacterName";
+import FactionSelector from "./Components/FormPages/FactionSelector";
+import RaceSelector from "./Components/FormPages/RaceSelector";
+import { IData } from "./types";
 import useFormHook from "./useFormHook";
 
 const INITIAL_DATA = {
-  name: "",
-  age: "",
-  university: "",
-  characterName: "asd",
-  characterClass: "123",
-  street: "",
-  number: "",
-  letter: "",
+  faction: "",
+  characterName: "",
+  characterRace: "",
 };
-
-interface IData {
-  name: string;
-  age: string;
-  university: string;
-  characterName: string;
-  characterClass: string;
-  street: string;
-  number: string;
-  letter: string;
-}
 
 function App() {
   const [data, setData] = useState(INITIAL_DATA);
-  function updateFields(field: Partial<IData>) {
+  console.log(data);
+  function updateField(field: Partial<IData>) {
     setData((prevData) => {
       return { ...prevData, ...field };
     });
   }
   const { indexPage, page, pages, nextPage, previousPage } = useFormHook([
-    <AddressForm {...data} updateField={updateFields} />,
-    <CharacterForm {...data} updateField={updateFields} />,
-    <InfoForm {...data} updateField={updateFields} />,
+    <CharacterName {...data} updateField={updateField} />,
+    <FactionSelector updateField={updateField} {...data} />, //TO FIX
+    <RaceSelector {...data} updateField={updateField} />,
   ]);
   return (
     <div className="selector">
