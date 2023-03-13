@@ -1,14 +1,43 @@
+import { useState } from "react";
 import AddressForm from "./AddressForm";
 import "./App.css";
 import CharacterForm from "./CharacterForm";
 import InfoForm from "./InfoForm";
 import useFormHook from "./useFormHook";
 
+const INITIAL_DATA = {
+  name: "",
+  age: "",
+  university: "",
+  characterName: "asd",
+  characterClass: "123",
+  street: "",
+  number: "",
+  letter: "",
+};
+
+interface IData {
+  name: string;
+  age: string;
+  university: string;
+  characterName: string;
+  characterClass: string;
+  street: string;
+  number: string;
+  letter: string;
+}
+
 function App() {
+  const [data, setData] = useState(INITIAL_DATA);
+  function updateFields(field: Partial<IData>) {
+    setData((prevData) => {
+      return { ...prevData, ...field };
+    });
+  }
   const { indexPage, page, pages, nextPage, previousPage } = useFormHook([
-    <CharacterForm />,
-    <AddressForm />,
-    <InfoForm />,
+    <AddressForm {...data} updateField={updateFields} />,
+    <CharacterForm {...data} updateField={updateFields} />,
+    <InfoForm {...data} updateField={updateFields} />,
   ]);
   return (
     <div className="selector">
