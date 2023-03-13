@@ -1,6 +1,10 @@
-export interface IData {
+export type FormData = UserInput & {
   characterName: string;
   faction: string;
   characterRace: string;
-  updateField: (field: any) => void;
-}
+  title: string;
+};
+
+export type UserInput = {
+  updateField: (field: Partial<FormData>) => void;
+};

@@ -1,9 +1,9 @@
-import { IData } from "../../types";
+import { FormData } from "../../types";
 
-const CharacterName = ({ characterName, updateField }: IData) => {
+const CharacterName = ({ characterName, updateField, title }: FormData) => {
   return (
     <div className="name">
-      <label htmlFor="">Type in your character name</label>
+      <h1>{title}</h1>
       <input
         type="text"
         value={characterName}
